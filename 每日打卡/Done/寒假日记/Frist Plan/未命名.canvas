@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"3ae3d265b462f87d","type":"text","text":"![[Pasted image 20260204144716.png]]","x":-1020,"y":-180,"width":582,"height":305},
+		{"id":"162ec77e867a544a","type":"text","text":"![[Pasted image 20260204144906.png]]","x":-260,"y":-180,"width":1242,"height":680},
+		{"id":"e570df6802fbb5f5","type":"text","text":"失败后进入死性队列","x":111,"y":-840,"width":250,"height":62},
+		{"id":"11c3eaaed2a1a5bc","type":"text","text":"![[Pasted image 20260204145107.png]]","x":1240,"y":360,"width":428,"height":560}
+	],
+	"edges":[
+		{"id":"a189f8a1e702bc70","fromNode":"3ae3d265b462f87d","fromSide":"top","toNode":"e570df6802fbb5f5","toSide":"bottom","label":"监听"},
+		{"id":"35bbd3a25cba6229","fromNode":"162ec77e867a544a","fromSide":"top","toNode":"e570df6802fbb5f5","toSide":"bottom","label":"1创建死信队列的基础设施\n2. 配置消息失败后的重发策略（yaml+@注解触发）"},
+		{"id":"ce15d5ec817eeeb4","fromNode":"11c3eaaed2a1a5bc","fromSide":"left","toNode":"162ec77e867a544a","toSide":"right"}
+	]
+}

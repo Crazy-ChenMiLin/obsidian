@@ -1,0 +1,1 @@
+[为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)? | 二哥的Java进阶之路](https://javabetter.cn/basic-extra-meal/jdk-while-for-wuxian-xunhuan.html)

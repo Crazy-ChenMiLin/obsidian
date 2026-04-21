@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"964c4163cb3ca4e3","type":"text","text":"请求","x":-440,"y":140,"width":80,"height":60},
+		{"id":"9816d3cac0682721","type":"text","text":"添加订单","x":-160,"y":140,"width":140,"height":60},
+		{"id":"40fd7c28c5c80c8a","type":"text","text":"","x":131,"y":19,"width":250,"height":60,"color":"2"},
+		{"id":"7a2da4daaa367c5d","type":"text","text":"悲观锁","x":-460,"y":400,"width":120,"height":50},
+		{"id":"ad8b180979c0e81b","type":"text","text":"乐观锁（stock, 0）","x":-460,"y":640,"width":200,"height":60},
+		{"id":"d48179bc203f025f","type":"text","text":"高并发场景：\n1. 优惠卷被消费的时候\n2. 大量请求过来","x":-960,"y":429,"width":250,"height":159},
+		{"id":"cb2b76691baae6ea","type":"text","text":"另一个场景：\n\t","x":-960,"y":1100,"width":250,"height":54},
+		{"id":"4ea213c1d61ad43e","type":"text","text":"1. 互斥锁","x":-1567,"y":787,"width":250,"height":60},
+		{"id":"150f1ca5d6edf473","type":"text","text":"","x":-161,"y":399,"width":250,"height":60},
+		{"id":"0445edb9ae1e7a76","type":"text","text":"事务回滚","x":-1282,"y":291,"width":250,"height":60,"color":"1"},
+		{"id":"e5a8ba6871544eb9","type":"text","text":"库存-1 和订单+1","x":-60,"y":640,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"92321459945f377f","fromNode":"964c4163cb3ca4e3","fromSide":"right","toNode":"9816d3cac0682721","toSide":"left"},
+		{"id":"3d2d7887079c1750","fromNode":"9816d3cac0682721","fromSide":"right","toNode":"40fd7c28c5c80c8a","toSide":"left"},
+		{"id":"2ed21600344ee5e0","fromNode":"7a2da4daaa367c5d","fromSide":"right","toNode":"150f1ca5d6edf473","toSide":"left","label":"处理请求"},
+		{"id":"65cf50365621871d","fromNode":"ad8b180979c0e81b","fromSide":"right","toNode":"e5a8ba6871544eb9","toSide":"left","label":"处理卷消费"},
+		{"id":"308ccf1dbccfa302","fromNode":"d48179bc203f025f","fromSide":"right","toNode":"7a2da4daaa367c5d","toSide":"left"},
+		{"id":"8caa1b831c38d89d","fromNode":"d48179bc203f025f","fromSide":"right","toNode":"ad8b180979c0e81b","toSide":"left"},
+		{"id":"b113a540c37d64c0","fromNode":"d48179bc203f025f","fromSide":"left","toNode":"4ea213c1d61ad43e","toSide":"right"},
+		{"id":"dca8fe165067f2ab","fromNode":"cb2b76691baae6ea","fromSide":"left","toNode":"4ea213c1d61ad43e","toSide":"right"},
+		{"id":"4d637a02a5b55c8c","fromNode":"0445edb9ae1e7a76","fromSide":"right","toNode":"d48179bc203f025f","toSide":"top"}
+	]
+}

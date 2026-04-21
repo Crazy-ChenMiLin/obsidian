@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"b8a596711226c5fc","type":"text","text":"云服务器拉取 github 仓库的地址:\n\t# 进入你要存放代码的目录（比如 /opt） \n\t\tcd /opt \n\t# 克隆 GitHub 仓库 \n\t\tgit clone https://github.com/hhhhabby/word_app.git\n\t # 进入项目目录 \n\t\t cd word_app","x":180,"y":-280,"width":740,"height":229},
+		{"id":"385c35f241678ea4","type":"text","text":"本地仓库（代码）","x":-720,"y":-195,"width":250,"height":60},
+		{"id":"f8a8f6d3dcafa3b5","type":"text","text":"Github（仓库）","x":-280,"y":-195,"width":250,"height":60},
+		{"id":"c5dece8c6577190f","type":"file","file":"照片/Pasted image 20260316172111.png","x":-555,"y":660,"width":400,"height":365},
+		{"id":"6efc986376b63e0a","type":"text","text":"下载环境和依赖（包括但不限于）：\n\t![[Pasted image 20260316172111.png]]","x":1000,"y":640,"width":898,"height":820}
+	],
+	"edges":[
+		{"id":"c1a17f1a57c019d0","fromNode":"385c35f241678ea4","fromSide":"right","toNode":"f8a8f6d3dcafa3b5","toSide":"left"},
+		{"id":"a763baffb365fcb0","fromNode":"f8a8f6d3dcafa3b5","fromSide":"right","toNode":"b8a596711226c5fc","toSide":"left"},
+		{"id":"4ccc845f6ab6bb9f","fromNode":"b8a596711226c5fc","fromSide":"bottom","toNode":"6efc986376b63e0a","toSide":"top"}
+	]
+}

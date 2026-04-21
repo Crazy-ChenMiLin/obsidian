@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"e87ac94f9cd218b6","type":"text","text":"数组","x":200,"y":-60,"width":250,"height":66},
+		{"id":"f68f14018d53ac51","type":"text","text":"数据类型","x":-153,"y":-347,"width":250,"height":60},
+		{"id":"ba094fe21d74261e","type":"text","text":"枚举","x":580,"y":-60,"width":250,"height":60},
+		{"id":"ff1300f584669614","type":"text","text":"接口（范类型）","x":-200,"y":-54,"width":250,"height":60},
+		{"id":"4b7587e0523a33bc","type":"text","text":"类名（具体类型）","x":-200,"y":180,"width":250,"height":60},
+		{"id":"0545cabf7db6a128","type":"text","text":"基础数据","x":-600,"y":-54,"width":250,"height":60},
+		{"id":"fb267df5f0e437b0","type":"text","text":"包装基础数据","x":-620,"y":180,"width":250,"height":60},
+		{"id":"e0addace799bff60","type":"text","text":"集合","x":200,"y":180,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"896650e2034651d0","fromNode":"f68f14018d53ac51","fromSide":"bottom","toNode":"0545cabf7db6a128","toSide":"top"},
+		{"id":"f26bb91e67116e46","fromNode":"f68f14018d53ac51","fromSide":"bottom","toNode":"ff1300f584669614","toSide":"top"},
+		{"id":"cd8052e80a8ee68c","fromNode":"f68f14018d53ac51","fromSide":"bottom","toNode":"e87ac94f9cd218b6","toSide":"top"},
+		{"id":"47716a266013f546","fromNode":"f68f14018d53ac51","fromSide":"bottom","toNode":"ba094fe21d74261e","toSide":"top"},
+		{"id":"11a740822d0d01eb","fromNode":"0545cabf7db6a128","fromSide":"bottom","toNode":"fb267df5f0e437b0","toSide":"top"},
+		{"id":"d2b9fae4eb6552f7","fromNode":"ff1300f584669614","fromSide":"bottom","toNode":"4b7587e0523a33bc","toSide":"top"},
+		{"id":"fafa3eeca898b6b3","fromNode":"e87ac94f9cd218b6","fromSide":"bottom","toNode":"e0addace799bff60","toSide":"top"}
+	]
+}

@@ -1,0 +1,31 @@
+{
+	"nodes":[
+		{"id":"e8f00460f86c1357","x":-1020,"y":-260,"width":2490,"height":1130,"type":"group","label":"Token"},
+		{"id":"79329e7a9015a72b","type":"text","text":"用户进入支付页面","x":-960,"y":-240,"width":250,"height":60},
+		{"id":"754e4b91849e377d","type":"text","text":"Id 存入 redis","x":-460,"y":-240,"width":250,"height":60},
+		{"id":"d3d44051ba7b5c4d","type":"text","text":"用户第一次点击支付按钮","x":-960,"y":-60,"width":250,"height":60},
+		{"id":"16c31dcbf1d59384","type":"text","text":"用户 id+token","x":-608,"y":-60,"width":250,"height":60},
+		{"id":"3b28af1f2805ba8e","type":"text","text":"插入幂等性表\n\t状态未支付","x":-124,"y":440,"width":250,"height":60},
+		{"id":"ae620914f4a6bc15","type":"text","text":"微信支付 api","x":320,"y":440,"width":250,"height":60},
+		{"id":"cbe590c001377efd","type":"text","text":"插入幂等性表\n已支付","x":760,"y":440,"width":250,"height":60},
+		{"id":"2798303a1642ca8b","type":"text","text":"用户第二次点击支付按钮","x":-1000,"y":790,"width":250,"height":60},
+		{"id":"92c83ad4db00fc5e","type":"text","text":"删除失败","x":-560,"y":500,"width":225,"height":50,"color":"1"},
+		{"id":"c58777f6eb470640","type":"text","text":"删除成功","x":-560,"y":221,"width":250,"height":69},
+		{"id":"359a23ce5e92ff99","type":"text","text":"# **服务端删除 token**","x":-1000,"y":340,"width":320,"height":80},
+		{"id":"95c74bca981663fd","type":"text","text":"用户 id","x":-608,"y":790,"width":250,"height":60},
+		{"id":"e54882ad1f4e8a57","type":"text","text":"更新订单状态","x":1200,"y":440,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"d70f05dc44e69742","fromNode":"79329e7a9015a72b","fromSide":"right","toNode":"754e4b91849e377d","toSide":"left","label":"生成id/token"},
+		{"id":"b2dfde1ce2466611","fromNode":"16c31dcbf1d59384","fromSide":"right","toNode":"c58777f6eb470640","toSide":"top"},
+		{"id":"cf5f9286cd94a354","fromNode":"3b28af1f2805ba8e","fromSide":"right","toNode":"ae620914f4a6bc15","toSide":"left"},
+		{"id":"870d93ac5e84a322","fromNode":"d3d44051ba7b5c4d","fromSide":"right","toNode":"16c31dcbf1d59384","toSide":"left"},
+		{"id":"b8576053aa01888b","fromNode":"ae620914f4a6bc15","fromSide":"right","toNode":"cbe590c001377efd","toSide":"left"},
+		{"id":"ee267e9bce1394e4","fromNode":"cbe590c001377efd","fromSide":"right","toNode":"e54882ad1f4e8a57","toSide":"left"},
+		{"id":"2e3a53cd81d61f84","fromNode":"2798303a1642ca8b","fromSide":"right","toNode":"95c74bca981663fd","toSide":"left"},
+		{"id":"48507b1d2875dd6d","fromNode":"359a23ce5e92ff99","fromSide":"right","toNode":"92c83ad4db00fc5e","toSide":"top"},
+		{"id":"49f0cc5d6b6c8fe2","fromNode":"359a23ce5e92ff99","fromSide":"right","toNode":"c58777f6eb470640","toSide":"left","fromEnd":"arrow"},
+		{"id":"24cc790c467c4e17","fromNode":"c58777f6eb470640","fromSide":"right","toNode":"3b28af1f2805ba8e","toSide":"left"},
+		{"id":"94cb85497e64dacf","fromNode":"95c74bca981663fd","fromSide":"top","toNode":"92c83ad4db00fc5e","toSide":"bottom"}
+	]
+}

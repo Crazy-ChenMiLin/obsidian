@@ -1,0 +1,1 @@
+![[phases-of-maven-lifecycle.webp]]

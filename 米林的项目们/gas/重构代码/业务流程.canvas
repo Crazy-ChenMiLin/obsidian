@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"24c9d5c6639ad26f","type":"text","text":"Grab_Callback.openCamera()：实际调用SDK打开摄像头硬件","x":-1077,"y":500,"width":540,"height":60},
+		{"id":"8a7590a6e0a842bd","type":"text","text":"展示\nMvsWebSocketController.SendFrames (cameraId, bytes, width, height)","x":-220,"y":430,"width":480,"height":140,"color":"5"},
+		{"id":"e709cf87541346a2","type":"text","text":"前端参数","x":-253,"y":-478,"width":250,"height":60},
+		{"id":"0fdad993113cbbe1","type":"text","text":"选择数字区域裁切","x":-253,"y":-75,"width":250,"height":90,"color":"5"},
+		{"id":"8d0966bc3cd2a355","type":"text","text":"模型识别","x":1040,"y":-60,"width":250,"height":60,"color":"5"},
+		{"id":"316a8b31c5ed891c","x":1974,"y":243,"width":1206,"height":177,"type":"text","text":"MvsWebSocketController 会调用 grab.CloseMVS ()\n同时做清理：\nGrab_Callback.GetImageCutParamsMap (). Remove (cameraId)：清裁剪框\nImageCache.ClearImage (cameraId)：清最新帧缓存\nGasDataWebSocketController.SendClearData (cameraId)：通知前端清空识别结果显示"},
+		{"id":"1258997c1ac6baaa","x":1560,"y":302,"width":250,"height":60,"color":"5","type":"text","text":"关闭摄像头"},
+		{"id":"f5433e277fd41011","type":"text","text":"结果发送前端\nGasDataWebSocketController.sendData(camIndex, readNumbers);","x":1560,"y":-60,"width":560,"height":80,"color":"5"},
+		{"id":"8763214761fc1307","type":"text","text":"共享 imageCutParamsMap\nGrab_Callback.getImageCutParamsMap().put(cameraId, cutParams);","x":160,"y":-60,"width":645,"height":60},
+		{"id":"113c512b5c9cd618","type":"text","text":"打开摄像头\nMvsWebSocketController. OnOpen ():{\n\t1. 建立 WebSocket 连接，启动 Grab_Callback 线程采集图像grabCallback.openCamera(cameraId)\n\t2. 存 ：grabCallbackMap. Put (cameraId, grabCallback);  \n\t\tSessionMap.Put (cameraId, session);\n}\n","x":-1600,"y":-170,"width":828,"height":280,"color":"5"},
+		{"id":"5f20e638cbfb7ae2","type":"text","text":"ImageCache.setLatestImage()：将采集到的原始图像存入缓存（供后续处理使用）","x":-905,"y":800,"width":685,"height":60}
+	],
+	"edges":[
+		{"id":"a69c4235ec1602a3","fromNode":"24c9d5c6639ad26f","fromSide":"bottom","toNode":"5f20e638cbfb7ae2","toSide":"top"},
+		{"id":"0a6a69211145b9f4","fromNode":"5f20e638cbfb7ae2","fromSide":"top","toNode":"8a7590a6e0a842bd","toSide":"bottom"},
+		{"id":"b0d96b1add70c3fc","fromNode":"113c512b5c9cd618","fromSide":"right","toNode":"0fdad993113cbbe1","toSide":"left"},
+		{"id":"bc73e312f4844711","fromNode":"5f20e638cbfb7ae2","fromSide":"top","toNode":"0fdad993113cbbe1","toSide":"bottom","label":"某一帧"},
+		{"id":"bf0c183f02a43dc3","fromNode":"e709cf87541346a2","fromSide":"bottom","toNode":"0fdad993113cbbe1","toSide":"top"},
+		{"id":"2d1a78426bc33c29","fromNode":"0fdad993113cbbe1","fromSide":"right","toNode":"8763214761fc1307","toSide":"left"},
+		{"id":"8148237dcedd80cf","fromNode":"1258997c1ac6baaa","fromSide":"right","toNode":"316a8b31c5ed891c","toSide":"left"},
+		{"id":"304d68a9e309d9fb","fromNode":"113c512b5c9cd618","fromSide":"bottom","toNode":"24c9d5c6639ad26f","toSide":"top"}
+	]
+}
