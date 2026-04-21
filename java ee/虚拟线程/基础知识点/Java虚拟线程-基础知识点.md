@@ -98,6 +98,104 @@ public class QuickVirtualThread {
 }
 ```
 
+### 3.4 三种方式的适用场景对比
+
+#### Thread.ofVirtual() - 精细控制场景
+**适用场景**：
+- 需要对单个虚拟线程进行精细配置
+- 需要设置线程名称、优先级、守护线程等属性
+- 需要获取线程引用以便后续操作（如join、interrupt）
+- 创建少量虚拟线程，需要对每个线程单独管理
+
+**典型用例**：
+```java
+// 创建有名称的监控线程，便于调试和日志追踪
+Thread monitorThread = Thread.ofVirtual()
+    .name("订单监控线程")
+    .daemon(true)
+    .priority(Thread.NORM_PRIORITY - 1)
+    .start(() -> {
+        while (running) {
+            monitorOrders();
+            Thread.sleep(1000);
+        }
+    });
+
+// 后续可以控制这个线程
+monitorThread.interrupt();
+monitorThread.join();
+```
+
+#### Executors.newVirtualThreadPerTaskExecutor() - 批量任务场景
+**适用场景**：
+- 需要执行大量并发任务（成百上千个）
+- 需要统一管理任务的生命周期
+- 需要优雅关闭和等待所有任务完成
+- 与现有线程池代码兼容，方便迁移
+- 需要限制任务提交速率或使用队列
+
+**典型用例**：
+```java
+ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+
+try {
+    List<CompletableFuture<Result>> futures = new ArrayList<>();
+    
+    for (Order order : orders) {
+        CompletableFuture<Result> future = CompletableFuture.supplyAsync(
+            () -> processOrder(order), 
+            executor
+        );
+        futures.add(future);
+    }
+    
+    // 等待所有订单处理完成
+    CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
+    
+} finally {
+    executor.shutdown();
+    executor.awaitTermination(1, TimeUnit.MINUTES);
+}
+```
+
+#### Thread.startVirtualThread() - 快速启动场景
+**适用场景**：
+- 只需要快速启动一个虚拟线程，不需要后续控制
+- fire-and-forget模式（启动后不需要join或管理）
+- 简单的异步任务，不需要返回结果
+- 临时性的后台任务
+- 代码简洁性优先的场景
+
+**典型用例**：
+```java
+// 异步发送日志，不关心结果
+Thread.startVirtualThread(() -> {
+    try {
+        logService.sendAsync(logEntry);
+    } catch (Exception e) {
+    }
+});
+
+// 异步清理缓存
+Thread.startVirtualThread(() -> {
+    Thread.sleep(5000);
+    cache.cleanup();
+});
+```
+
+#### 场景选择总结
+| 方式 | 线程数量 | 控制粒度 | 生命周期管理 | 典型场景 |
+|------|----------|----------|--------------|----------|
+| Thread.ofVirtual() | 少量（1-10个） | 精细配置 | 手动管理 | 监控线程、定时任务、需要命名的线程 |
+| Executors.newVirtualThreadPerTaskExecutor() | 大量（100+） | 统一管理 | 自动管理 | 批量处理、并发请求、任务队列 |
+| Thread.startVirtualThread() | 单个 | 无配置 | 无管理 | 异步日志、临时清理、fire-and-forget |
+
+**选择建议**：
+- 需要控制线程 → 用 `Thread.ofVirtual()`
+- 批量处理任务 → 用 `Executors.newVirtualThreadPerTaskExecutor()`
+- 快速启动不关心结果 → 用 `Thread.startVirtualThread()`
+
+
 ## 4. 基础注意事项
 
 ### 4.1 Java版本要求
