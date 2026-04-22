@@ -1,3 +1,5 @@
+![[netty知识点 2026-04-22 11.21.27.excalidraw]]
+
 ## 一、Netty 基础定位 & 核心价值
 
 1. 基于**Java NIO 封装**的高性能网络框架，**Dubbo 默认通信底层**
@@ -47,7 +49,6 @@
     
     - `HeapByteBuf`：堆内存
     - `DirectByteBuf`：直接内存，**少一次拷贝，IO 性能更高**
-    
 
 ## 四、Netty 异步核心机制
 
