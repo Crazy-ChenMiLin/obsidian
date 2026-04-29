@@ -1,7 +1,13 @@
+Git  --help
+	帮助文档
+
+
+1. 初始化建立
+		Git init
 
 
 
-1. 改 git 地址
+2. 改 git 地址
 		git remote set-url origin（分支） 仓库地址
 		git remote -v
 		https://github.com/hhhhabby/word_app.git
