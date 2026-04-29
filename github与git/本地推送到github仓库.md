@@ -1,5 +1,8 @@
+
+
+
 1. 改 git 地址
-		git remote set-url origin 仓库地址
+		git remote set-url origin（分支） 仓库地址
 		git remote -v
 		https://github.com/hhhhabby/word_app.git
 ![[Pasted image 20260416224132.png]]
