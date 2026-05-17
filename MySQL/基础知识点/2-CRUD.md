@@ -87,7 +87,7 @@ CREATE TABLE students (
 | 场景 1：全表更新     | `UPDATE 表名 SET 列名1=value1, 列名2=value2, ...;`                 | 1. 无 WHERE 条件，更新表中**所有行**数据；<br><br>2. 谨慎使用，易误改全表数据                          |
 | 场景 2：条件更新（推荐） | `UPDATE 表名 SET 列名1=value1, 列名2=value2, ... WHERE condition;` | 1. 仅更新满足`condition`的行；<br><br>2. `condition`为逻辑表达式（如`stu_id=8`、`stu_age<20`） |
 |               |                                                              |                                                                              |
-
+![[2-CRUD 2026-05-17 15.02.10.excalidraw]]
 ## 查询
 #### 简单查询
 
