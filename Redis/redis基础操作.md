@@ -169,10 +169,6 @@ void setUp() {
 
 ### 1. 停止 Redis 服务
 
-bash
-
-运行
-
 ```bash
 # 方式1：通过redis-cli停止（推荐，优雅关闭）
 redis-cli -h 127.0.0.1 -p 6379 auth 你的密码 shutdown
