@@ -51,7 +51,7 @@ public class RedissonConfig {
 
 
 
-```plain
+```java
 import org.redisson.api.RBlockingDeque;
 import org.redisson.api.RDelayedQueue;
 import org.redisson.api.RedissonClient;
