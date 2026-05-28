@@ -8,7 +8,7 @@
 
 
 > <font style="color:rgb(51, 51, 51);">Redis Setnx（</font>**<font style="color:rgb(51, 51, 51);">SET</font>**<font style="color:rgb(51, 51, 51);"> if </font>**<font style="color:rgb(51, 51, 51);">N</font>**<font style="color:rgb(51, 51, 51);">ot e</font>**<font style="color:rgb(51, 51, 51);">X</font>**<font style="color:rgb(51, 51, 51);">ists） 命令在指定的 key 不存在时，为 key 设置指定的值。设置成功，返回 1 。 设置失败，返回 0 。</font>
->
+> 
 
 
 
@@ -16,7 +16,7 @@
 
 
 
-```plain
+```java
 public class RedisDistributedLock {
     private final JedisPool jedisPool;
 
