@@ -89,6 +89,38 @@ function cleanContentDir() {
   fs.writeFileSync(path.join(contentDir, ".gitkeep"), "")
 }
 
+function ensureHomePage(notes = []) {
+  const indexPath = path.join(contentDir, "index.md")
+  if (fs.existsSync(indexPath)) return
+
+  const links =
+    notes.length > 0
+      ? notes
+          .map((note) => {
+            const rel = toPosix(path.relative(root, note)).replace(/\.md$/i, "")
+            return `- [[${rel}]]`
+          })
+          .join("\n")
+      : "- 暂时还没有标记为公开发布的笔记。"
+
+  const markdown = `---
+title: 首页
+---
+
+# Crazy-ChenMiLin Notes
+
+${links}
+`
+
+  if (dryRun) {
+    console.log("home  index.md")
+    return
+  }
+
+  fs.mkdirSync(contentDir, { recursive: true })
+  fs.writeFileSync(indexPath, markdown)
+}
+
 function stripWikiTarget(target) {
   return target.split("|")[0].split("#")[0].trim()
 }
@@ -163,6 +195,7 @@ const publishedNotes = markdownFiles.filter(isPublished)
 const indexes = makeIndexes(allFiles)
 
 if (publishedNotes.length === 0) {
+  ensureHomePage()
   console.log("No notes with publish: true found. Existing content/ was left unchanged.")
   process.exit(0)
 }
@@ -187,6 +220,8 @@ for (const note of publishedNotes) {
     copyFile(attachment, path.join(contentDir, attachmentRel))
   }
 }
+
+ensureHomePage(publishedNotes)
 
 console.log(
   `${dryRun ? "Dry run complete" : "Done"}: ${publishedNotes.length} note(s), ${copiedAttachments.size} attachment(s).`,
