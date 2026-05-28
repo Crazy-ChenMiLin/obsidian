@@ -18,6 +18,8 @@
     "format": "npx prettier . --write",
     "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
+    "sync-content": "node ./scripts/sync-quartz-content.mjs",
+    "sync-content:dry-run": "node ./scripts/sync-quartz-content.mjs --dry-run",
     "install-plugins": "npx tsx ./quartz/plugins/loader/install-plugins.ts",
     "prebuild": "npm run install-plugins"
   },

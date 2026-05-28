@@ -1,3 +1,7 @@
 /.obsidian
+node_modules/
+public/
+quartz/.quartz-cache/
+tsconfig.tsbuildinfo
 /.obsidian/workspace.json
 /.obsidian
