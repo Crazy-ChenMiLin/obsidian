@@ -4,4 +4,4 @@ title: 首页
 
 # Crazy-ChenMiLin Notes
 
-- [[未命名]]
+- [[content/未命名]]
